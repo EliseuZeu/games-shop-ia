@@ -20,15 +20,19 @@
 
 ## Description
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+Welcome to the **Games Shop IA** project! This project is built using the [Nest](https://github.com/nestjs/nest) framework, a progressive Node.js framework for building efficient and scalable server-side applications.
 
 ## Project setup
+
+To get started with the project, you need to install the dependencies:
 
 ```bash
 $ npm install
 ```
 
 ## Compile and run the project
+
+You can compile and run the project in different modes:
 
 ```bash
 # development
@@ -42,6 +46,8 @@ $ npm run start:prod
 ```
 
 ## Run tests
+
+To ensure the quality of the code, you can run various tests:
 
 ```bash
 # unit tests
