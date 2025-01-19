@@ -42,4 +42,16 @@ export class ProdutosController {
     async remove(@Param('id') id: number): Promise<void> {
         return this.produtosService.remove(id);
     }
+
+    @Get('preco/maior-que/:valor')
+    @HttpCode(HttpStatus.OK)
+    async findProdutosPrecoMaiorQue(@Param('valor') valor: number): Promise<Produto[]> {
+    return this.produtosService.findProdutosPrecoMaiorQue(valor);
+    }
+
+    @Get('preco/menor-que/:valor')
+    @HttpCode(HttpStatus.OK)
+    async findProdutosPrecoMenorQue(@Param('valor') valor: number): Promise<Produto[]> {
+        return this.produtosService.findProdutosPrecoMenorQue(valor);
+    }
 }
