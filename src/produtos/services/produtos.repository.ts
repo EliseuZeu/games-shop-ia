@@ -35,4 +35,18 @@ export class ProdutoService {
     async remove(id: number): Promise<void> {
         await this.produtoRepository.delete(id);
     }
+
+    async findProdutosPrecoMaiorQue(valor: number): Promise<Produto[]> {
+      return this.produtoRepository.createQueryBuilder('produto')
+        .where('produto.valor > :valor', { valor })
+        .orderBy('produto.valor', 'ASC')
+        .getMany();
+    }
+
+    async findProdutosPrecoMenorQue(valor: number): Promise<Produto[]> {
+      return this.produtoRepository.createQueryBuilder('produto')
+        .where('produto.valor < :valor', { valor })
+        .orderBy('produto.valor', 'DESC')
+        .getMany();
+    }
 }
