@@ -1,15 +1,14 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
 import { Produto } from '../../produtos/entitys/produtos.entity';
-import { OneToMany } from 'typeorm';
 
-@Entity('tb_categorias')
+@Entity({ name: 'tb_categorias' })
 export class Categoria {
-    @PrimaryGeneratedColumn()
-    id: number;
+  @PrimaryGeneratedColumn()
+  id: number;
 
-    @Column({ type: 'varchar', length: 255 })
-    nome: string;
+  @Column({ length: 255, nullable: false })
+  nome: string;
 
-    @OneToMany(() => Produto, produto => produto.categoria)
-    produtos: Produto[];
+  @OneToMany(() => Produto, (produto) => produto.categoria)
+  produtos: Produto[];
 }

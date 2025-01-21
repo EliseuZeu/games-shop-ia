@@ -2,6 +2,7 @@ import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, JoinColumn } from 't
 import { IsNotEmpty } from 'class-validator';
 import { Transform, TransformFnParams } from 'class-transformer';
 import { Categoria } from 'src/categorias/entitys/categoria.entity';
+import { Usuario } from 'src/usuario/entities/usuario.entity';
 
 @Entity('tb_produtos')
 export class Produto {
@@ -31,4 +32,9 @@ export class Produto {
   @ManyToOne(() => Categoria, categoria => categoria.produtos)
   @JoinColumn({ name: 'categoria_id' })
   categoria: Categoria;
+
+  @ManyToOne(() => Usuario, (usuario) => usuario.Produto, {
+        onDelete: "CASCADE"
+    })
+    usuario: Usuario
 }

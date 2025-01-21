@@ -2,7 +2,9 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Produto } from './produtos/entitys/produtos.entity';
-import { ProdutosModule } from './produtos/produtos.module';
+import { ProdutosModule } from './produtos/produto.module';
+import { CategoriaModule } from './categorias/categoria.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -13,10 +15,10 @@ import { ProdutosModule } from './produtos/produtos.module';
       username: 'root',
       password: '193243',
       database: 'db_gamesshop',
-      entities: [Produto],
+      entities: [Produto, CategoriaModule, AuthModule],
       synchronize: true,
     }),
-    ProdutosModule,
+    ProdutosModule,CategoriaModule, AuthModule,
   ],
   controllers: [],
   providers: [],
